@@ -12,16 +12,6 @@ header h1 {
     font-weight: 400;
 }
 
-button {
-    font-size: 0.8rem;
-    border: none;
-    background-color: #9494b8;
-    text-transform: uppercase;
-    padding: 0.5em 3em;
-    border-radius: 4px;
-    font-weight: 600;
-}
-
 .search {
     display: flex;
 }
@@ -31,7 +21,4 @@ button {
     margin-right: 5px;
 }
 
-.map {
-    background-color: cadetblue;
-    height: calc(100vh - 52.8px);
-}
+
