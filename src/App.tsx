@@ -1,8 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {TestInterface} from "types";
 
 function App() {
+  const foobar: TestInterface = {
+    x: 123,
+    y: "test",
+    z: true,
+  };
   return (
     <div className="App">
       <header className="App-header">
