@@ -1,29 +1,29 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import {MarkupsList} from "types";
 import "./Map.css";
 import "leaflet/dist/leaflet.css";
 import "../../utils/fix-map-icon";
 import {LatLngExpression} from "leaflet";
-import {validateResponse} from "../../utils/validateResponse";
+import {SearchContext} from "../../contexts/searchContext";
 import {apiCall} from "../../utils/apiCall";
+import { SimpleAdEntity } from "types";
+import {SingleAd} from "./SingleAd";
 
 
 export const Map = () => {
-    const [data, setData] = useState<MarkupsList | null>(null);
+    const {search} = useContext(SearchContext);
+    const [markers, setMarkers] = useState<SimpleAdEntity[]>([]);
     const position: LatLngExpression = [52.1026339,21.2385117];
 
-    const refreshMarkupsList = async () => {
-        setData(null);
-        const res = await apiCall("list");
-        await validateResponse(res);
+    const getMarkers = async () => {
+        const res = await apiCall(`ad/search/${search}`);
         const data = await res.json();
-        setData(data);
+        setMarkers(data);
     }
 
     useEffect(() => {
-        refreshMarkupsList();
-    }, []);
+        getMarkers();
+    }, [search]);
 
     return(
         <div className="map">
@@ -33,13 +33,11 @@ export const Map = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {
-                    data === null
-                    ? null
-                    : data.markersList
+                    markers
                         .map(marker =>
                             <Marker key={marker.id} position={[marker.lon, marker.lat]}>
                                 <Popup>
-                            {marker.name}<br/>{marker.url}
+                                    <SingleAd id={marker.id}/>
                                 </Popup>
                             </Marker>)
                 }
