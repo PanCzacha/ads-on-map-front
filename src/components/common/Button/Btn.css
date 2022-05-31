@@ -1,4 +1,6 @@
-button {
+.btn {
+    text-decoration: none;
+    color: rgba(171,32,21,0.65);
     font-size: 0.8rem;
     border: none;
     background-color: #9494b8;

@@ -10,7 +10,7 @@ export const Header = () => {
             <h1>
                 <strong>Mapa </strong> Ogłoszeń
             </h1>
-            <Btn text="Dodaj Ogłoszenie"/>
+            <Btn to="/add" text="Dodaj Ogłoszenie"/>
             <Search/>
         </header>
     )
