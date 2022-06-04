@@ -35,7 +35,7 @@ export const Map = () => {
                 {
                     markers
                         .map(marker =>
-                            <Marker key={marker.id} position={[marker.lon, marker.lat]}>
+                            <Marker key={marker.id} position={[marker.lat, marker.lon]}>
                                 <Popup>
                                     <SingleAd id={marker.id}/>
                                 </Popup>

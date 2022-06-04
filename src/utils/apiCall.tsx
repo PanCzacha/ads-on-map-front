@@ -1,4 +1,3 @@
-
 export const apiCall = async (endpoint: string, method = "GET", body?: any): Promise<any> => {
     if(method === "GET") {
         return await fetch(`http://localhost:3001/${endpoint}`);

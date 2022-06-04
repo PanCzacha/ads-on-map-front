@@ -12,6 +12,11 @@ header h1 {
     font-weight: 400;
 }
 
+header a {
+    text-decoration: none;
+    color: rgb(84, 66, 66);
+}
+
 .search {
     display: flex;
 }
