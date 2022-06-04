@@ -16,7 +16,7 @@ export const Map = () => {
     const position: LatLngExpression = [52.1026339,21.2385117];
 
     const getMarkers = async () => {
-        const res = await apiCall(`ad/search/${search}`);
+        const res = await apiCall(`/ad/search/${search}`);
         const data = await res.json();
         setMarkers(data);
     }

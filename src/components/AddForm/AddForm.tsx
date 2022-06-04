@@ -22,7 +22,7 @@ export const AddForm = () => {
         setLoading(true);
         try {
             const {lat, lon} = await geoCodeCall(adForm.address);
-            const res = await apiCall("ad", "POST", {
+            const res = await apiCall("/ad", "POST", {
                 name: adForm.name,
                 description: adForm.description,
                 price: adForm.price,

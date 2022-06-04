@@ -11,7 +11,7 @@ export const SingleAd = (props: Props) => {
     const [marker, setMarker] = useState<AdEntity | null>(null);
     useEffect(() => {
         (async () => {
-            const res = await apiCall(`ad/${props.id}`);
+            const res = await apiCall(`/ad/${props.id}`);
             const data = await res.json();
             setMarker(data);
         })()
